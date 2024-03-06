@@ -1,0 +1,15 @@
+% Facts representing relationships between students, teachers, subjects, and codes
+student(john).
+student(sarah).
+teacher(michael).
+teacher(linda).
+subject(math).
+subject(english).
+code(101).
+code(102).
+
+% Generate exam questions with fill-in-the-blank format
+generate_question(Question) :-
+    (student(Student) ; teacher(Student)),
+    (subject(Subject) ; code(Subject)),
+    format(atom(Question), 'What is the $s of $s?', [Subject, Student]).

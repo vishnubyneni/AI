@@ -1,0 +1,19 @@
+import math,random
+def simulated_annealing(f,x,t,r,n):
+ c=x;c_=c;C=f(c);B=C
+ for i in range(n):
+  t*=r
+  x= c+random.uniform(-0.1,0.1);F=f(x)
+  if F < C:c=c_;c_=x;C=F;B=min(B,F)
+  elif math.exp((C-F)/t) > random.random():c=c_;c_=x;C=F
+ return B,c
+f=lambda x: x**2
+r=random.uniform
+if __name__ == "__main__":
+ x = r(-10,10)
+ t = 100.0
+ r = 0.99
+ n = 1000
+ B,c = simulated_annealing(f,x,t,r,n)
+ print("Best solution:", c)
+ print("Best cost:", B)

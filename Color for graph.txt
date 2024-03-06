@@ -1,0 +1,21 @@
+def is_valid_color(g, n, c, m):
+    return all(n not in g.get(k, []) or m.get(k) != c for k in g[n])
+def graph_coloring(g, c, m, n):
+    if n is None: return True
+    for clr in c:
+        if is_valid_color(g, n, clr, m):
+            m[n] = clr
+            if graph_coloring(g, c, m, next((x for x in g if x not in m), None)):
+                return True
+            m.pop(n)
+    return False
+def color_map(g, c):
+    m = {}
+    if graph_coloring(g, c, m, next(iter(g))):
+        return m
+graph = {'A': ['B', 'C'], 'B': ['A', 'C', 'D'], 'C': ['A', 'B', 'D'], 'D': ['B', 'C']}
+colors = ['Red', 'Green', 'Blue']
+result = color_map(graph, colors)
+print("Valid coloring:" if result else "No valid coloring exists:")
+for node, color in result.items():
+    print(f"{node}: {color}") if result else None

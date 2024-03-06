@@ -1,0 +1,3 @@
+diet_recommendation(diabetes, 'Eat a balanced diet with controlled carbohydrates and sugars.').
+diet_recommendation(hypertension, 'Follow the DASH diet - rich in fruits, vegetables, and low-fat dairy products.').
+diet_recommendation(obesity, 'Focus on portion control and increase intake of fruits, vegetables, and lean proteins.').

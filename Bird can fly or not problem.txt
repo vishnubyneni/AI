@@ -1,0 +1,6 @@
+bird(sparrow).
+bird(eagle).
+
+can_fly(Bird) :-
+    bird(Bird),
+    \+ (Bird = penguin).

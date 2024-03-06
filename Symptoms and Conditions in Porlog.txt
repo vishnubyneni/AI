@@ -1,0 +1,11 @@
+symptom(feeling_tired).
+symptom(cough).
+symptom(fever).
+symptom(headache).
+
+condition(cold, [cough, fever, headache]).
+condition(flu, [feeling_tired, cough, fever]).
+
+diagnose(Symptoms, Condition) :-
+    condition(Condition, SymptomList),
+    subset(SymptomList, Symptoms).

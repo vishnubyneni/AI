@@ -1,0 +1,12 @@
+import random
+f=lambda x: x**2
+def h(m,s):
+ c,v=random.uniform(-10,10),f(-10)
+ for _ in range(m):
+  n,p=c+random.uniform(-s,s),f(c)
+  if p<v:c,v=n,p
+ return c,v
+m,s=1000,0.1
+x,y=h(m,s)
+print("Best solution found:",x)
+print("Objective function value:",y)

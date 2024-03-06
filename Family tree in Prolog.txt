@@ -1,0 +1,14 @@
+father(john, lisa).
+mother(mary, lisa).
+mother(mary, mike).
+father(tom, mary).
+father(mike, emma).
+mother(emma, olivia).
+grandfather(tom, olivia).
+
+sibling(X, Y) :-
+    father(F, X),
+    father(F, Y),
+    mother(M, X),
+    mother(M, Y),
+    X \= Y.
